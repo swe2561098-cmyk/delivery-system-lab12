@@ -1,0 +1,20 @@
+digraph Components {
+	bgcolor=white fontcolor="#183153" fontname="Noto Sans" fontsize=18 label="КОМПОНЕНТЫН ДИАГРАММ" labelloc=t nodesep=0.6 rankdir=LR ranksep=0.9 splines=polyline
+	node [color="#6b94bd" fillcolor="#eaf4ff" fontname="Noto Sans" fontsize=11 margin="0.18,0.14" shape=component style=filled]
+	ui [label="Вэб UI"]
+	order [label="Захиалгын үйлчилгээ"]
+	delivery [label="Хүргэлтийн үйлчилгээ"]
+	locker [label="Локерын үйлчилгээ"]
+	payment [label="Төлбөрийн үйлчилгээ"]
+	notification [label="Мэдэгдлийн үйлчилгээ"]
+	repo [label="Өгөгдөлд хандах"]
+	ui -> order [label="IЗахиалга" color="#5d7487" fontname="Noto Sans" fontsize=9]
+	ui -> delivery [label="IХүргэлт" color="#5d7487" fontname="Noto Sans" fontsize=9]
+	order -> payment [label="IТөлбөр" color="#5d7487" fontname="Noto Sans" fontsize=9]
+	delivery -> locker [label="IЛокер" color="#5d7487" fontname="Noto Sans" fontsize=9]
+	delivery -> notification [label="IМэдэгдэл" color="#5d7487" fontname="Noto Sans" fontsize=9]
+	order -> repo [label="IӨгөгдөл" color="#5d7487" fontname="Noto Sans" fontsize=9]
+	delivery -> repo [label="IӨгөгдөл" color="#5d7487" fontname="Noto Sans" fontsize=9]
+	locker -> repo [label="IӨгөгдөл" color="#5d7487" fontname="Noto Sans" fontsize=9]
+	payment -> repo [label="IӨгөгдөл" color="#5d7487" fontname="Noto Sans" fontsize=9]
+}

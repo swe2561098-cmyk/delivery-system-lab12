@@ -1,0 +1,19 @@
+# Хүргэлтийн үйлчилгээний систем — Лаборатори 12
+
+**Зорилго:** Архитектурын зохиомж, компонент ба интерфейс, архитектурын шийдвэр, GitHub Actions CI-г жишээлэх.
+
+> Энэ нь сургалтын зориулалттай загвар ба жижиг тестийн төсөл. Ажилладаг бүрэн хүргэлтийн веб систем биш.
+
+## Агуулга
+- `docs/architecture.png`, `docs/architecture.dot`: 3 түвшинт архитектур
+- `docs/components.png`, `docs/components.dot`: компонентын диаграмм
+- `docs/ADR-001.md`: архитектурын шийдвэр
+- `db/schema.sql`: жишиг схем
+- `src/fee.js`, `tests/fee.test.js`: тесттэй функц
+- `.github/workflows/ci.yml`: push/PR бүрт CI
+
+## Ажиллуулах
+Node.js 22 суулгана. `npm ci`, дараа нь `npm test` ажиллуулна.
+
+## GitHub-д байрлуулах
+Энэ хавтсыг GitHub repository болгоод `main` руу push хийнэ. GitHub → Actions дээр CI үр дүнг шалгана. Багийн ажил бол Collaborators урих, branch protection тохируулах хэрэгтэй. **Энэ багцыг GitHub-д хараахан байршуулж, Actions дээр ажиллуулаагүй.**

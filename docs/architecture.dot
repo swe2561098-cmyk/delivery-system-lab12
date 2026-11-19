@@ -1,0 +1,40 @@
+digraph Architecture {
+	bgcolor=white fontcolor="#183153" fontname="Noto Sans" fontsize=18 label="ХҮРГЭЛТИЙН СИСТЕМИЙН 3 ТҮВШИНТ АРХИТЕКТУР" labelloc=t nodesep=0.48 rankdir=TB ranksep=0.85 splines=ortho
+	node [color="#6383a7" fontname="Noto Sans" fontsize=12 margin="0.23,0.16" shape=box style="rounded,filled"]
+	subgraph cluster_ui {
+		bgcolor="#edf7ff" color="#82b5e5" fontname="Noto Sans" label="1. Танилцуулгын түвшин · React" style=rounded
+		sender [label="Илгээгчийн вэб дэлгэц"]
+		manager [label="Менежерийн дэлгэц"]
+		courier [label="Хүргэгчийн дэлгэц"]
+	}
+	subgraph cluster_api {
+		bgcolor="#effbf5" color="#70b9a0" fontname="Noto Sans" label="2. Хэрэглээний түвшин · Node.js REST API" style=rounded
+		order [label="Захиалгын үйлчилгээ"]
+		delivery [label="Хүргэлтийн үйлчилгээ"]
+		locker [label="Локерын үйлчилгээ"]
+		payment [label="Төлбөрийн үйлчилгээ"]
+		notification [label="Мэдэгдлийн үйлчилгээ"]
+	}
+	subgraph cluster_db {
+		bgcolor="#f6f3ff" color="#aaa2d5" fontname="Noto Sans" label="3. Өгөгдлийн түвшин · PostgreSQL" style=rounded
+		db [label="users · orders · deliveries
+lockers · payments · events"]
+	}
+	sender -> order [label=HTTPS]
+	manager -> delivery
+	courier -> delivery
+	order -> payment
+	delivery -> locker
+	delivery -> notification
+	order -> db [label=SQL]
+	delivery -> db
+	locker -> db
+	payment -> db
+	notification -> db
+	payexternal [label="Гадаад төлбөрийн API" color="#a16c43" style="dashed,rounded"]
+	smartlocker [label="Ухаалаг локер / IoT шлюз" color="#a16c43" style="dashed,rounded"]
+	msg [label="SMS/имэйл үйлчилгээ" color="#a16c43" style="dashed,rounded"]
+	payment -> payexternal [style=dashed]
+	locker -> smartlocker [style=dashed]
+	notification -> msg [style=dashed]
+}
